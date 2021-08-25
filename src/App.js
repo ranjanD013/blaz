@@ -1,20 +1,29 @@
-import Banner from './components/banner';
-import SectionOne from './components/section-one';
-import SectionTwo from './components/section-two';
-import SectionThree from './components/section-three';
+
+import AboutPage from './pages/AboutPage';
+import ContactPage from './pages/ContactPage';
+import HomePage from './pages/HomePage';
+import NewsPage from './pages/NewsPage';
+import './App.css'
+import Header from './components/Header';
+
+import {
+  BrowserRouter,
+  Switch,
+  Route,
+} from "react-router-dom";
 
 function App() {
   return (
-<div>
-<Banner/>
-<SectionOne/>
-<SectionTwo/>
-<SectionThree/>
+    <BrowserRouter>
+      <Header />
 
-  
-</div>
-    
-
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route exact path="/about" component={AboutPage} />
+        <Route exact path="/news" component={NewsPage} />
+        <Route exact path="/contact" component={ContactPage} />
+      </Switch>
+    </BrowserRouter>
   );
 }
 
